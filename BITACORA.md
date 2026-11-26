@@ -180,4 +180,65 @@ Y borra esa entrada de la cajonera (ya no queda guardada).
 
 Es como abrir el cajón, sacar lo que guardaste y cerrarlo vacío.
 
+# Comandos del Laboratorio de Rescate
 
+## Comandos de Git
+
+| Comando | Para qué sirve |
+|---|---|
+| `git clone <url>` | Descarga una copia del repositorio remoto a tu computador. |
+| `git add .` | Prepara todos los cambios para el próximo commit. |
+| `git add <archivo>` | Prepara solo ese archivo para el próximo commit. |
+| `git commit -m "mensaje"` | Guarda una “foto” de los cambios preparados con un mensaje. |
+| `git push` | Sube tus commits a GitHub. |
+| `git status` | Muestra qué archivos están modificados, preparados o borrados. |
+| `git log` | Muestra el historial completo de commits. |
+| `git log --oneline` | Muestra el historial en una línea por commit. |
+| `git log --oneline --graph` | Muestra el historial compacto con gráfico. |
+| `git log --oneline --graph --all` | Muestra el historial compacto con gráfico y todas las ramas. |
+| `git diff` | Muestra los cambios que aún NO has preparado con `git add`. |
+| `git diff --staged` | Muestra los cambios que YA están preparados para el commit. |
+| `git restore <archivo>` | Recupera un archivo en tu carpeta de trabajo. |
+| `git restore --staged <archivo>` | Saca un archivo del área de preparación, sin borrarlo del disco. |
+| `git commit --amend -m "mensaje"` | Corrige el mensaje del último commit (solo si no lo has subido). |
+| `git revert HEAD` | Crea un commit nuevo que deshace el último commit. Seguro tras `push`. |
+| `git reset --soft HEAD~1` | Deshace el último commit local, pero conserva los cambios. |
+| `git stash` | Guarda tus cambios a medias y deja la carpeta limpia. |
+| `git stash list` | Muestra la lista de trabajos guardados con `stash`. |
+| `git stash pop` | Saca los cambios guardados y los devuelve a tu carpeta. |
+| `git switch -c <rama>` | Crea una rama nueva y se cambia a ella. |
+| `git switch main` | Cambia a la rama `main`. |
+
+## Otros comandos (no son de Git)
+
+| Comando | Para qué sirve |
+|---|---|
+| `cd <carpeta>` | Entra a una carpeta. |
+| `del <archivo>` | Borra un archivo en Windows. |
+| `rm <archivo>` | Borra un archivo en Git Bash, Linux o macOS. |
+| `q` | Sale del visor de `git log`. |
+| `:wq` | En Vim: guarda y sale del editor. |
+
+## Notas rápidas
+
+- `HEAD` = el último commit.
+- `HEAD~1` = un commit antes del último.
+- `.gitignore` no es un comando: es un archivo donde pones patrones como `*.env` para que Git los ignore.
+- `git reset --soft` y `git commit --amend` solo se usan si el commit **no** se ha subido.
+- `git revert` sí es seguro aunque ya hayas hecho `push`.
+
+# Resultado final del `git log --oneline --graph`
+
+Hewlett-Packard@Alejo MINGW64 ~/Downloads/laboratorio-rescate-Beimar-Alejandro-Rocha-Suarez (main)
+$ git log --oneline --graph
+* d407109 (HEAD -> main, origin/main, origin/HEAD) docs: completa bitácora del laboratorio
+* ac9cf7e docs: agrega línea 5 a notas
+* 61bea7f (fix/urgente) feat: agrega borrador completo
+* 99a7a1d Reapply "fix: limpia notas"
+* 8a8fd37 Revert "fix: limpia notas"
+* d709ab7 fix: limpia notas
+* 4b7d1da fix: limpia notas
+* a10ed65 docs: agrega línea 4 a notas
+* 92fa718 chore: agrega .gitignore para archivos .env
+* 47bd0f9 feat: agrega notas y bitácora
+* 9e892ef Initial commit
